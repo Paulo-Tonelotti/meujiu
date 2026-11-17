@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    container_name: meu-jiu-app
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: meujiu
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - meujiu-pgdata:/var/lib/postgresql/data
+volumes:
+  meujiu-pgdata:
